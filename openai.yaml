@@ -1,0 +1,86 @@
+openapi: 3.1.0
+info:
+  title: DevTools Actions API
+  version: 1.0.0
+  description: Serverless actions for function generation, code explanation, and language translation.
+servers:
+  - url: https://devtools-api.vercel.app
+paths:
+  /generate-function-code:
+    post:
+      operationId: generateFunctionCode
+      summary: Generate code for a function description
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                description:
+                  type: string
+      responses:
+        '200':
+          description: Generated code
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  code:
+                    type: string
+
+  /explain-code-snippet:
+    post:
+      operationId: explainCodeSnippet
+      summary: Explain a code snippet
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                language:
+                  type: string
+                code:
+                  type: string
+      responses:
+        '200':
+          description: Explanation of the code
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  explanation:
+                    type: string
+
+  /translate-code-language:
+    post:
+      operationId: translateCodeLanguage
+      summary: Translate code between languages
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                sourceLanguage:
+                  type: string
+                targetLanguage:
+                  type: string
+                code:
+                  type: string
+      responses:
+        '200':
+          description: Translated code
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  code:
+                    type: string
+

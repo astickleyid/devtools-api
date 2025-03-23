@@ -1,0 +1,12 @@
+{
+    "version": 2,
+    "builds": [
+      { "src": "api/*.js", "use": "@vercel/node" }
+    ],
+    "routes": [
+      { "src": "/generate-function-code", "dest": "api/generate.js" },
+      { "src": "/explain-code-snippet", "dest": "api/explain.js" },
+      { "src": "/translate-code-language", "dest": "api/translate.js" }
+    ]
+  }
+  
